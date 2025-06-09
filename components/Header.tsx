@@ -3,6 +3,7 @@ import Image from 'next/image';
 import hogar from '../public/image/hogar.webp';
 import limpiadora from '../public/image/limpiadora.webp';
 import { FaCalendarAlt  } from "react-icons/fa";
+import Link from 'next/link';
 
 export default function Header() {
     return (
@@ -36,13 +37,13 @@ export default function Header() {
                             Confía en Brillo Hogar para la limpieza profesional de casas, oficinas y locales. Servicio puntual, personal de confianza y resultados impecables en tu zona.
                         </p>
                         <div className="mt-6 flex justify-center">
-                            <a
+                            <Link
                                 href="/reservar/"
                                 className="flex gap-2 items-center px-4 py-2 rounded-2xl font-bold bg-cyan-500/70 text-white hover:bg-cyan-700 hover:scale-105 transition-transform duration-200 shadow-md text-center"
                                 aria-label="Contactar a Brillo Hogar por teléfono"
                             >
                                 <FaCalendarAlt aria-hidden="true" /> Agendar cita
-                            </a>
+                            </Link>
                         </div>
                     </div>
 

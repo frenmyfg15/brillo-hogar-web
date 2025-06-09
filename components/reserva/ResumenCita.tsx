@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { Cita } from '@/app/types';
 import { formatearFecha, generarPDFInformeCita } from '@/app/util/reserva';
+import Link from 'next/link';
 
 interface Props {
     cita: Cita;
@@ -56,19 +57,12 @@ export default function ResumenCita({ cita }: Props) {
 
             </div>
             <div className="mt-10 flex sm:flex-row justify-center items-center gap-4">
-                <a
-                    href="/reservar"
-                    className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-md font-semibold shadow transition"
-                >
+                <Link href="/reservar" className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-md font-semibold shadow transition">
                     Crear otra cita
-                </a>
-
-                <a
-                    href="/"
-                    className="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md font-semibold shadow transition"
-                >
+                </Link>
+                <Link href="/" className="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md font-semibold shadow transition">
                     Volver al inicio
-                </a>
+                </Link>
             </div>
         </>
     );
