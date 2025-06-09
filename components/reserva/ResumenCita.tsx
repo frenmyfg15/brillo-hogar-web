@@ -2,7 +2,6 @@
 
 import React, { useRef } from 'react';
 import { Cita } from '@/app/types';
-import jsPDF from 'jspdf';
 import { formatearFecha, generarPDFInformeCita } from '@/app/util/reserva';
 
 interface Props {

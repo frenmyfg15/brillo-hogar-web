@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const weekDays = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];

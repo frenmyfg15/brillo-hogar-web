@@ -39,7 +39,6 @@ export default function SelectorHora({
   label,
   selected,
   onSelect,
-  selectedDate,
   rangosOcupados,
 }: Props) {
   return (

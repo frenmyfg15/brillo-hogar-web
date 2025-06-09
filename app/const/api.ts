@@ -1,1 +1,1 @@
-export const api = 'http://localhost:4000'
+export const api = 'https://reserva-citas-backend-production.up.railway.app/'
