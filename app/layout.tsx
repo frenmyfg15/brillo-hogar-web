@@ -3,6 +3,8 @@ import { Poppins } from 'next/font/google';
 import "./globals.css";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import CookiesBanner from "@/components/CookiesBanner";
+import Head from "@/layout/Head";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Brillo Hogar | Servicio de Limpieza Profesional en Valdemoro",
@@ -52,9 +54,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${poppins.className} antialiased`}>
+        <Head/>
         {children}
         <WhatsAppButton />
         <CookiesBanner />
+        <Footer/>
       </body>
     </html>
   );

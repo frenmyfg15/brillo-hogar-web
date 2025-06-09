@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import { FaPhoneAlt } from "react-icons/fa";
-import logo from '../public/image/logo.webp';
 import hogar from '../public/image/hogar.webp';
 import limpiadora from '../public/image/limpiadora.webp';
+import { FaCalendarAlt  } from "react-icons/fa";
 
 export default function Header() {
     return (
@@ -22,24 +21,7 @@ export default function Header() {
 
                 {/* Filtro oscuro sobre la imagen */}
                 <div className="absolute inset-0 bg-black/50 z-10" />
-
-                {/* Top Bar */}
-                <div className="absolute top-0 w-full z-20 px-6 md:px-10 py-4 flex justify-between items-center">
-                    <Image
-                        src={logo}
-                        alt="Logotipo de Brillo Hogar, empresa de limpieza profesional"
-                        width={100}
-                        height={100}
-                    />
-                    <a
-                        aria-label="Llamar a Brillo Hogar"
-                        href="tel:617547481"
-                        className="flex gap-2 items-center px-4 py-2 rounded-2xl font-bold bg-cyan-500/70 text-white hover:bg-cyan-700 hover:scale-105 transition-transform duration-200 shadow-md"
-                    >
-                        <FaPhoneAlt aria-hidden="true" /> 617 547 481
-                    </a>
-                </div>
-
+                
                 {/* Hero Section: Texto + Imagen limpiadora */}
                 <div className="absolute bottom-0 z-20 flex flex-wrap items-center justify-center w-full gap-5">
                     {/* Texto */}
@@ -53,13 +35,13 @@ export default function Header() {
                         <p className="hidden mt-4 font-bold drop-shadow-lg md:block sm:block">
                             Confía en Brillo Hogar para la limpieza profesional de casas, oficinas y locales. Servicio puntual, personal de confianza y resultados impecables en tu zona.
                         </p>
-                        <div className="mt-6">
+                        <div className="mt-6 flex justify-center">
                             <a
-                                href="tel:617547481"
-                                className="inline-block bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-full transition-transform duration-200 hover:scale-105 shadow-lg"
+                                href="/reservar/"
+                                className="flex gap-2 items-center px-4 py-2 rounded-2xl font-bold bg-cyan-500/70 text-white hover:bg-cyan-700 hover:scale-105 transition-transform duration-200 shadow-md text-center"
                                 aria-label="Contactar a Brillo Hogar por teléfono"
                             >
-                                Contratar ahora
+                                <FaCalendarAlt aria-hidden="true" /> Agendar cita
                             </a>
                         </div>
                     </div>

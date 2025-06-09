@@ -1,6 +1,5 @@
 import { Cobertura } from "@/components/Cobertura";
 import { Confianza } from "@/components/Confianza";
-import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import HowWeWork from "@/components/HowWeWork";
 import ProductosTools from "@/components/ProductosTools";
@@ -15,7 +14,7 @@ export default function Home() {
     <ProductosTools/>
     <Cobertura/>
     <Confianza/>
-    <Footer/>
+    
     </>
   );
 }
