@@ -60,7 +60,7 @@ export default function ResumenCita({ cita }: Props) {
                 <Link href="/reservar" className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-md font-semibold shadow transition">
                     Crear otra cita
                 </Link>
-                <Link href="/" className="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md font-semibold shadow transition">
+                <Link href="/" className="bg-gray-800 text-white hover:bg-gray-700 px-6 py-2 rounded-md font-semibold shadow transition">
                     Volver al inicio
                 </Link>
             </div>

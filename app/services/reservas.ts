@@ -28,6 +28,26 @@ export const obtenerDiasLlenos = async (fecha: Cita['fecha']) => {
         return res.data
     } catch (error) {
         console.log(error)
+        return [];
     }
 }
 
+export const obtenerCitasCompletas = async (fecha: Cita['fecha']) => {
+  try {
+    const res = await apiClient.get(`/api/citas-por-dia?fecha=${fecha}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const obtenerDiasConCitas = async () => {
+  try {
+    const res = await apiClient.get(`/api/dias-con-citas`);
+    return res.data || [];
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

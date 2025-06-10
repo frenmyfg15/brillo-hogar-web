@@ -5,11 +5,14 @@ import Image from 'next/image';
 const weekDays = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
 
 interface Props {
-  selectedDate: Date | null;
+  selectedDate: Date;
   onSelectDate: (date: Date) => void;
+  diasConCita?: string[]; // formato 'yyyy-MM-dd'
+  mostrarDiasConCita?: boolean;
 }
 
-export default function SeleccionarDia({ selectedDate, onSelectDate }: Props) {
+
+export default function SeleccionarDia({ selectedDate, onSelectDate, diasConCita, mostrarDiasConCita }: Props) {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (date: Date) => {
@@ -60,7 +63,7 @@ export default function SeleccionarDia({ selectedDate, onSelectDate }: Props) {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-md max-w-md mx-auto border border-cyan-100">
+    <div className="bg-white rounded-xl p-6 shadow-md max-w-md mx-auto">
       {/* Month Selector */}
       <div className="flex justify-between items-center mb-6">
         <button
@@ -90,7 +93,20 @@ export default function SeleccionarDia({ selectedDate, onSelectDate }: Props) {
       {/* Calendar Days */}
       <div className="grid grid-cols-7 text-center gap-1 text-sm h-[300px]">
         {calendar.flat().map((day, i) => {
-          const disabled = !day || isPast(day);
+          const disabled =
+            !day ||
+            (
+              isPast(day) &&
+              (!mostrarDiasConCita)
+            );
+
+          const current = day
+            ? new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+            : null;
+
+          const iso = current?.toLocaleDateString('sv-SE');
+          const tieneCita = mostrarDiasConCita && iso && diasConCita?.includes(iso);
+
           return (
             <button
               key={i}
@@ -98,20 +114,22 @@ export default function SeleccionarDia({ selectedDate, onSelectDate }: Props) {
               onClick={() =>
                 day && onSelectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), day, 12))
               }
-              className={`w-10 h-10 rounded-full ${
-                day
-                  ? isSelected(day)
-                    ? 'bg-cyan-600 text-white font-bold'
-                    : disabled
+              className={`w-10 h-10 flex flex-col items-center justify-center rounded-full text-sm transition ${day
+                ? isSelected(day)
+                  ? 'bg-cyan-600 text-white font-bold'
+                  : disabled
                     ? 'text-gray-300 cursor-not-allowed'
-                    : 'hover:bg-cyan-100'
-                  : 'cursor-default'
-              }`}
+                    : 'hover:bg-cyan-100 text-gray-800'
+                : 'cursor-default'
+                }`}
             >
               {day || ''}
+              {/* Punto verde si el día tiene citas */}
+              {tieneCita && <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-0.5" />}
             </button>
           );
         })}
+
       </div>
     </div>
   );
