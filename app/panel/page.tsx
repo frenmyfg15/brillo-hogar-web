@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 import { Cita } from '../types';
-import { obtenerCitasCompletas, obtenerDiasConCitas, obtenerDiasLlenos } from '../services/reservas';
+import { obtenerCitasCompletas, obtenerDiasConCitas } from '../services/reservas';
 import ListaCitas from '@/components/panel/ListaCitas';
 import DiasConCitaLista from '@/components/panel/DiasConCitaLista';
 import SeleccionarDia from '@/components/reserva/SeleccionarDia';
